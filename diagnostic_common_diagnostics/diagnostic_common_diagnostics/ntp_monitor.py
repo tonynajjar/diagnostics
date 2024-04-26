@@ -97,6 +97,7 @@ class NTPMonitor(Node):
 
     def checkCB(self):
         new_msg = DIAG.DiagnosticArray()
+        new_msg.header.stamp = self.get_clock().now().to_msg()
 
         st = self.ntp_diag(self.stat)
         if st is not None:
